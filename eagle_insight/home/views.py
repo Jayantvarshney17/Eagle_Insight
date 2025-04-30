@@ -20,9 +20,9 @@ from twilio.rest import Client
 import random
 from django.http import JsonResponse
 # Twilio configuration (replace with your own credentials)
-account_sid = 'AC364ddae3d91114105a7bd00f97a4bf6f'  # Replace with your Twilio Account SID
-auth_token = '4a715f0e5d16cb6ab398d6c4b5385e00'    # Replace with your Twilio Auth Token
-twilio_phone_number = '+19034378569'  # Replace with your Twilio Phone Number
+account_sid =  # Replace with your Twilio Account SID
+auth_token =     # Replace with your Twilio Auth Token
+twilio_phone_number =   # Replace with your Twilio Phone Number
 
 
 client = Client(account_sid, auth_token)
