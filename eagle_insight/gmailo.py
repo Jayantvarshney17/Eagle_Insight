@@ -44,8 +44,7 @@ def send_emailo(request, fir_id):
     email = EmailMessage(
         subject=f"FIR Report of {fir.number_plate}",
         body=f"{fir.owner_name} has filled the FIR Form on Eagle Insight.FIR report is Attached.",
-        from_email="dheerajvarshney74@gmail.com",
-        to=['dheerajvarshney89@gmail.com']  # Use user email from FIR
+        from_email=  # Use user email from FIR
     )
     email.attach(pdf_file.name, pdf_file.read(), "application/pdf")
     email.send()
