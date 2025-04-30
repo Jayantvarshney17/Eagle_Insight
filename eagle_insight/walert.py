@@ -9,4 +9,4 @@ def send_whatsapp_alert(number,info,google_maps_link):
     )
 
 # Example Usage
-# send_whatsapp_alert(number="+918791733065",info='UP81X7833',google_maps_link='https://www.google.com/maps?q=78.64,66.55')
+# send_whatsapp_alert(number="",info='UP81X7833',google_maps_link='https://www.google.com/maps?q=78.64,66.55')
