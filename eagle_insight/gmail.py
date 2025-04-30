@@ -45,7 +45,7 @@ def send_email(request, fir_id):
     email = EmailMessage(
         subject="Your FIR Report",
         body="Attached is your FIR report.",
-        from_email="dheerajvarshney74@gmail.com",
+        from_email="",
         to=[fir.email]  # Use user email from FIR
     )
     email.attach(pdf_file.name, pdf_file.read(), "application/pdf")
