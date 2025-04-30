@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome | Eagle Insight</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background
+        }
+        
+        .popup {
+            position: relative;
+            background-color: #fff;
+            padding: 20px 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            font-size: 16px;
+            color: #333;
+        }
+        
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: none;
+            border: none;
+            font-size: 20px;
+            font-weight: bold;
+            color: #666;
+            cursor: pointer;
+            outline: none;
+        }
+        
+        .close-btn:hover {
+            color: #e74c3c;
+        }
+        
+        .hidden {
+            display: none;
+        }
+        /* Popover Overlay with Background Image */
+.popover-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('/static/images/tr.jpeg') no-repeat center center;
+  background-size: cover; /* Ensures the image covers the entire overlay */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  backdrop-filter: blur(10px); /* Optional: Apply blur effect to the background image */
+}
+
+/* Popover Container */
+.popover-container {
+  background: rgba(255, 255, 255, 0.8); /* Semi-transparent background for readability */
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  padding: 30px;
+  text-align: center;
+  max-width: 400px;
+  width: 90%;
+  animation: slideIn 0.6s ease;
+}
+
+/* Popover Icon */
+.popover-icon {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 15px;
+  animation: bounce 1s infinite;
+}
+
+/* Branding */
+.brand {
+  color: #ff6b00;
+  font-weight: bold;
+}
+
+/* Button */
+.btn {
+  margin-top: 20px;
+  padding: 12px 25px;
+  background: #ff6b00;
+  color: #ffffff;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: none; /* Removes underline */
+  display: inline-block;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+  background: #e65b00;
+  transform: scale(1.05);
+}
+
+/* Animations */
+@keyframes slideIn {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+    </style>
+</head>
+<body>
+  <div id="welcomePopover" class="popover-overlay">
+    <div class="popover-container">
+      <div class="popover-header">
+        <img src="/static/images/eagle.png" alt="Eagle Logo" class="popover-icon">
+        <h2>Welcome to <span class="brand">Eagle Insight</span></h2>
+      </div>
+      <hr>
+      <h3><span class="brand">Vehicle Number Plate Detection & Stolen Vehicle Alert System</span></h3>
+    <p>Detect vehicle number plates, store vehicles data securely, and receive real-time alerts for stolen vehicles.</p>
+      <a href="/home" id="closePopover" class="btn">Let's Get Started</a>
+    </div>
+  </div>
+  
+      
+    <script>
+      // Wait for the document to load
+document.addEventListener("DOMContentLoaded", () => {
+  const popover = document.getElementById("welcomePopover");
+  const closeButton = document.getElementById("closePopover");
+
+  // Close the popover on button click
+  closeButton.addEventListener("click", () => {
+    popover.style.animation = "fadeOut 0.5s ease-out forwards";
+    setTimeout(() => {
+      popover.style.display = "none";
+    }, 500);
+  });
+});
+
+/* CSS fadeOut animation */
+const style = document.createElement('style');
+style.innerHTML = `
+  @keyframes fadeOut {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+`;
+document.head.appendChild(style);
+
+    </script>
+</body>
+</html>

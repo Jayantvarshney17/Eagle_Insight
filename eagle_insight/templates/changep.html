@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% block title %}Change Password{% endblock title %}
+{% block css %}
+body {
+    background-color: #f8f9fa;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+{% endblock css %}
+{% block body %}
+<br>
+<br>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card p-4">
+                <div class="card-body">
+                    <h3 class="text-center mb-4">Change Password</h3>
+                    <p class="text-muted text-center mb-4">
+                        Enter your New Password.
+                    </p>
+                    <form method="post" action="/forgot/">
+                        <!-- CSRF Token for Django (optional if using Django) -->
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" name="email1" required value={{email}} readonly>
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Password</label>
+                            <input 
+                            type="password" 
+                            id="password" 
+                            name="pass" 
+                            class="form-control" 
+                            placeholder="Enter your password" 
+                            required>
+                            <br>
+                            <label for="password" class="form-label">Confirm Password</label>
+                            <input 
+                            type="password" 
+                            id="password" 
+                            name="cpass" 
+                            class="form-control" 
+                            placeholder="Enter your confirm password" 
+                            required>
+                        </div>
+                        <div class="d-grid">
+                            <button type="submit" name='change' class="btn btn-primary">Change Password</button>
+                        </div>
+                    </form>
+                    <div class="mt-4 text-center">
+                        <a href="/officer_Owner/" class="text-decoration-none">Back to Login</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock body %}

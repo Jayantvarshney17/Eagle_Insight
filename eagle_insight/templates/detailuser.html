@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vehicle Found Details | Eagle Insight</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+           
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .vehicle-detail-container {
+            background-color: #fff;
+            padding: 20px;
+            width: 50%;
+            margin-left:400px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .vehicle-image {
+            margin-top: 20px;
+        }
+        .vehicle-image img {
+            width: 300px;
+            height: auto;
+            border-radius: 8px;
+        }
+        .vehicle-info {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+        .vehicle-info div {
+            margin-bottom: 10px;
+        }
+        .location-link {
+            display: block;
+            margin-top: 20px;
+            font-size: 16px;
+            color: #4CAF50;
+            text-decoration: underline;
+        }
+        .location-link:hover {
+            color: #45a049;
+        }
+        footer {
+            background-image: url('/static/images/foot.jpg');
+            background-size: 20%;
+            background-repeat: no-repeat;
+            background-position: left;
+            position: relative;
+            text-align: center;
+            padding: 40px 40px;
+            border-radius: 20px;
+            margin: 40px auto;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+            border: 4px solid #000;
+        }
+
+        .footer-content {
+            position: relative;
+            z-index: 2;
+            color: black;
+            font-size: 20px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .social-icons {
+            margin: 20px 0;
+        }
+
+        .social-icons a {
+            margin: 0 15px;
+            color: black;
+            text-decoration: none;
+            font-size: 30px;
+            transition: color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: #007BFF;
+        }
+
+        .custom-nav-margin {
+            margin-left: 800px; /* Custom left margin */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <img src="\static\images\1.jpg" alt="Favicon" style="width: 80px; height:60px;">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/home">Eagle Insight</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/home">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/about">AboutUs</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/contact">ContactUs</a>
+            </li>
+          </ul>
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0 custom-nav-margin">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/get_status">Get Status</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <br>
+    <br>
+    <!-- Vehicle Details Content -->
+    <div class="vehicle-detail-container">
+        <h2><b><u>Vehicle Found Details</u></b></h2>
+
+        <div class="vehicle-info">
+            <div><strong>Owner Name:</strong> {{ cehicles.owner_name}}</div>
+          <div><strong>Number Plate:</strong> {{ Vehicles.plate_number}}</div>
+          <div><strong>Model Number:</strong> {{ cehicles.model_number}}</div>
+          <div><a href = "{{ Vehicles.current_location}}" target="_blank"><strong>View At Location</strong></a></div>
+      </div>
+
+        <!-- Display Car Image -->
+        <div class="vehicle-image">
+            <strong>Car Image:</strong> 
+            <br>
+            <img src="{{ Vehicles.car_image.url }}" alt="Car Image">
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-content">
+          <p>Connect with Us!</p>
+          <div class="social-icons">
+              <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+              <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+              <a href="https://www.x.com" target="_blank"><i class="fab fa-x"></i></a>
+          </div>
+          <p>&copy; 2024 EagleInsight. All Rights Are Reserved.</p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</body>
+</html>

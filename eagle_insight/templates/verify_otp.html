@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+{% block title %}Verify OTP{% endblock title %}
+{% block css %}
+/* General Styling */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #fff;
+}
+
+/* Form Container */
+.container {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    padding: 20px 30px;
+    text-align: center;
+    color: #333;
+}
+
+/* Heading */
+h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* Input Field */
+input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus {
+    border-color: #6a11cb;
+    outline: none;
+    box-shadow: 0 0 5px rgba(106, 17, 203, 0.5);
+}
+
+/* Button */
+button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    background: linear-gradient(90deg, #6a11cb, #2575fc);
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.1s ease;
+}
+
+button:hover {
+    background: linear-gradient(90deg, #2575fc, #6a11cb);
+    transform: scale(1.02);
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+/* Message Styling */
+.message {
+    margin-top: 15px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.message.success {
+    color: #28a745;
+}
+
+.message.error {
+    color: #dc3545;
+}
+{% endblock css %}
+{% block body %}
+<br>
+<br>
+<div class="container">
+    <h2>Enter OTP</h2>
+    <form method='POST' action='/user/' id="otpForm">
+        {% csrf_token %}
+        <label for="otp">Mobile:</label>
+        <input type="text" name="phone_number" value={{phone_number}} >
+        <label for="otp">OTP:</label>
+        <input type="text" id="otp" name="otp" placeholder="Enter OTP" required>
+        <button type="submit" name='eotp'  id="submitOtpBtn">Submit OTP</button>
+    </form>
+</div>
+{% endblock body %}
